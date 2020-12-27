@@ -32,6 +32,15 @@ Send @Post to http://localhost:8099/context/api/v1/movie
 }
 ```
 
+Send @Post to http://localhost:8099context/api/v1/animal
+
+```
+{
+    "animalType" : "DOG"
+}
+```
+
+
 After rest endpoint is triggered, the if you check the console you can see the asynchrous call from conductor-server.
 You can also check conductor-ui for virtualizaton : http://localhost:5000
 
