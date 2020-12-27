@@ -1,5 +1,6 @@
 package com.conductor.example.controller;
 
+import com.conductor.example.resource.Animal;
 import com.conductor.example.resource.HelloWorldResource;
 import com.conductor.example.resource.MovieResource;
 import com.conductor.example.worker.service.WorkflowClientService;
@@ -33,6 +34,13 @@ public class WorkflowTriggerController {
     public ResponseEntity<Void> movieTrigger(@RequestBody @Valid MovieResource movieResource) {
         workflowClientService.triggerWorkflowByNameAndInput("decision_workflow",
                 ImmutableMap.of("movieType", movieResource.getMovieType(), "movieId", movieResource.getMovieId()));
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/animal")
+    public ResponseEntity<Void> animalTrigger(@RequestBody @Valid Animal animalType) {
+        workflowClientService.triggerWorkflowByNameAndInput("animal_workflow",
+            ImmutableMap.of("animalName",animalType.getAnimalType()));
         return ResponseEntity.noContent().build();
     }
 }

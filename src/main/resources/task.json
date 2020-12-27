@@ -33,5 +33,13 @@
       "movieId"
     ],
     "type": "SIMPLE"
+  },
+  {
+    "name": "dog_bark",
+    "type": "SIMPLE"
+  },
+  {
+    "name": "cat_meow",
+    "type": "SIMPLE"
   }
 ]

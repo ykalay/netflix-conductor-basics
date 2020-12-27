@@ -1,5 +1,41 @@
 [
   {
+    "name": "animal_workflow",
+    "description": "Custom Hello World WF",
+    "version": 1,
+    "schemaVersion": 2,
+    "inputParameters": [
+      "animalName"
+    ],
+    "tasks": [
+      {
+        "name": "decide_animal_type",
+        "taskReferenceName": "decide_animal_ref_1",
+        "inputParameters": {
+          "animalName": "${workflow.input.animalName}"
+        },
+        "type": "DECISION",
+        "caseValueParam": "animalName",
+        "decisionCases": {
+          "DOG": [
+            {
+              "name": "dog_bark",
+              "taskReferenceName": "dog_bark_ref_1",
+              "type": "SIMPLE"
+            }
+          ],
+          "CAT": [
+            {
+              "name": "cat_meow",
+              "taskReferenceName": "cat_meow_ref_1",
+              "type": "SIMPLE"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
     "name": "hello_world_workflow",
     "description": "Hello World",
     "version": 1,
